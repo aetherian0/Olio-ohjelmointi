@@ -4,7 +4,7 @@ def main() -> None:
 
     noppa_summa = random.randint(1, 6) + random.randint(1, 6)   
 
-    f = open("pisteet.txt")
+    f = open("tuplanoppa_pisteet.txt")
     pisteet = str(f.read())
     f.close()
 
