@@ -1,7 +1,9 @@
 import random
 
 from datetime import datetime
-#class TänäänOn:
+
+class TänäänOn:
+    pass
 
 
 
