@@ -1,3 +1,5 @@
+import random
+
 class TuplaNoppa: 
     def __init__(self): 
         self.otsikko = "" 
