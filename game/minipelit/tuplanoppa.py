@@ -2,7 +2,7 @@ import random
 
 class Tuplanoppa: 
     def __init__(self): 
-        self.otsikko = "TuplaNoppa" 
+        self.otsikko = "Tuplanoppa" 
         self.min = 0 
         self.max = 6 
         self.noppa1 = 0 
