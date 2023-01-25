@@ -22,9 +22,9 @@ viikon_päivät1.remove(viikon_päivät1[päivä])
 #print(viikon_päivät[päivä])
 
 Random=random.sample(viikon_päivät1, 3)
-lista1= str(Random)
-lista1=lista1.replace("[","")
-lista1=lista1.replace("]","")
+lista1 = str(Random)
+lista1 = lista1.replace("[","")
+lista1 = lista1.replace("]","")
 lista2 = str(viikon_päivät[päivä])
 
-print(lista1+", "+ "'"+lista2+"'")
+print(lista1 + ", " + "'" + lista2 + "'")
