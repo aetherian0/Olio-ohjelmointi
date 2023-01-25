@@ -20,11 +20,13 @@ def pelaa(peli) -> None:
     '''
     driveri parametrina saadulle pelille 
     '''
-    #  mikä peli on esim. tarkistamalla sen tyyppi
+    #  Viisinoppa peli
     if type(peli) == Viisinoppa:
         print(peli.otsikko)
         if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
             uudestaan(peli)
+
+    # Tuplanoppa peli        
     elif type(peli) == Tuplanoppa:
         print(peli.otsikko)
         while True:
@@ -44,12 +46,11 @@ def pelaa(peli) -> None:
                         clear()
                     else:
                         break
-
             except Exception as e:
                 print('OOPS, tarkista syötteesi!', e)
-       
+
+    # Muussa tapauksessa aloita ArvaaLuku peli   
     else:    
-        #  testi peli käyttää ArvaaLuku luokkaa
         while True:
             try:
                 arvaus = int(input(peli.otsikko + ': '))
