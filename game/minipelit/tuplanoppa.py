@@ -11,8 +11,8 @@ class Tuplanoppa:
         self.otsikko = "Tuplanoppa" 
         self.min = 0 
         self.max = 6 
-        self.noppa1 = random.randint(min, max)
-        self.noppa2 = random.randint(min, max)
+        self.noppa1 = random.randint(self.min, self.max)
+        self.noppa2 = random.randint(self.min, self.max)
 
 
     def tarkista(self, arvaus): 
