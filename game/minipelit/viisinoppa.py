@@ -4,9 +4,9 @@ class Viisinoppa:
     def __init__(self):
         '''
         attribuutit
-            otsikko : str, 
-            min, max : int, 
-            nopat : int, 
+            otsikko : str, luokan nimi
+            min, max : int, generoitavan alueen rajat
+            nopat : int, noppien silmäluvut
         '''
         self.otsikko = "Viisinoppa"
         self.min = 0
