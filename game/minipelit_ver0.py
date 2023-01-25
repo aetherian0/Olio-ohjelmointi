@@ -27,8 +27,27 @@ def pelaa(peli) -> None:
             uudestaan(peli)
     elif type(peli) == Tuplanoppa:
         print(peli.otsikko)
-        if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-            uudestaan(peli)        
+        while True:
+            try:
+                arvaus = input("Onko kahden nopan summa yli, alle vai tasan 7? \nAnna vastaus tähän: ")
+                if peli.tarkista(arvaus):
+                    print(f"{arvaus} on oikein, noppien summa oli {peli.noppa_summa}!")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli) 
+                        clear()
+                    else:
+                        break
+                else:
+                    print(f"Vastauksesi on väärin! Oikea vastaus oli {peli.noppa_summa}")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli) 
+                        clear()
+                    else:
+                        break
+
+            except Exception as e:
+                print('OOPS, tarkista syötteesi!', e)
+       
     else:    
         #  testi peli käyttää ArvaaLuku luokkaa
         while True:
