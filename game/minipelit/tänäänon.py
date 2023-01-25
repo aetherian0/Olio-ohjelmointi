@@ -1,0 +1,2 @@
+class TänäänOn:
+    pass

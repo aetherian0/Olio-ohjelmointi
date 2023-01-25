@@ -1,4 +1,3 @@
-#class viisinoppa(object):
 class ViisiNoppaa:  #   muutettu UML luokkakaavion mukaiseksi
     def __init__(self):
         self.otsikko = "ViisiNoppaa" # print("ViisiNoppaa") arvo on None

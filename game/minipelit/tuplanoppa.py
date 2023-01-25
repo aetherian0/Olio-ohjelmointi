@@ -1,46 +1,61 @@
-# kirjoita koko koodi uudelleen class muodossa
+class TuplaNoppa(object): 
 
-import random
+    def __init__(self): 
 
-def main() -> None:
+        self.otsikko = "" 
 
-    noppa_summa = random.randint(1, 6) + random.randint(1, 6)   
+        self.min = 0 
 
-    f = open("tuplanoppa_pisteet.txt")
-    pisteet = str(f.read())
-    f.close()
+        self.max = 0 
 
-    while True:
-        try:
-            panos = int(input("Aseta panos: "))
-            arvaus = input("Arvaa onko noppien summa tasan, yli vai alle 7: ")
+        self.noppa1 = 0 
 
-            if arvaus == "tasan":
-                print("Arvasit tasan")
-                if noppa_summa == 7:
-                    print("Arvauksesi on oikein! Noppien summa oli " + str(noppa_summa) + ". " + "Voitit " + str(panos * 1000) + " pistettä!")
-                    print("Sinulla on nyt " + pisteet + " pistettä yhteensä.")
-                    break
-                else:
-                    print("Arvauksesi on väärin, noppien summa oli " + str(noppa_summa) + ". Hävisit " + str(panos * 100) + " pistettä.")
-                    print("Sinulla on nyt " + pisteet + " pistettä yhteensä.")
-                    break
+        self.noppa2 = 0 
 
-            if arvaus == "alle" or arvaus == "yli":
-                print("Arvasit " + arvaus)
-                if noppa_summa != 7:
-                    print("Arvauksesi on oikein! Noppien summa oli " + str(noppa_summa) + ". " + "Voitit " + str(panos * 100) + " pistettä!")
-                    print("Sinulla on nyt " + pisteet + " pistettä yhteensä.")
-                    break
-                else:
-                    print("Arvauksesi on väärin, noppien oli " + str(noppa_summa) + ". Hävisit " + str(panos * 10) + " pistettä.")
-                    print("Sinulla on nyt " + pisteet + " pistettä yhteensä.")
-                    break
+         
 
-        except:
-            print("Tarkista syötteesi!")
-            continue
+    # Start of user code -> properties/constructors for TuplaNoppa class 
 
+ 
 
-if __name__=='__main__':
-    main()
+    # End of user code 
+
+    def tarkista(self, parameter): 
+
+        # Start of user code protected zone for tarkista function body 
+
+        return False 
+
+        # End of user code   
+
+    def reset(self): 
+
+        # Start of user code protected zone for reset function body 
+
+        raise NotImplementedError 
+
+        # End of user code   
+
+    def tallennus(self): 
+
+        # Start of user code protected zone for tallennus function body 
+
+        raise NotImplementedError 
+
+        # End of user code   
+
+ 
+
+    # Start of user code -> methods for TuplaNoppa class 
+
+ 
+
+    # End of user code 
+
+ 
+
+# Start of user code -> functions/methods for LAB1 UML MALLI package 
+
+ 
+
+# End of user code 

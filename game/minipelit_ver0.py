@@ -11,6 +11,7 @@ import os
 import minipelit
 from minipelit.arvaaluku import ArvaaLuku
 from minipelit.viisinoppa import ViisiNoppaa
+from minipelit.tänäänon import TänäänOn
 
 
             
