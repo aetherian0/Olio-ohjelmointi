@@ -1,8 +1,0 @@
-arvaus = "yli"
-noppa_summa = 4
-
-
-if arvaus == "tasan" and noppa_summa == 7 or arvaus == "alle" and noppa_summa <= 6 or arvaus == "yli" and noppa_summa >= 8:
-    print(True)
-else:
-    print(False)
