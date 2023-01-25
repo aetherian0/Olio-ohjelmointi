@@ -20,11 +20,54 @@ def pelaa(peli) -> None:
     '''
     driveri parametrina saadulle pelille 
     '''
-    #  mikä peli on esim. tarkistamalla sen tyyppi
+    #  Viisinoppa peli
     if type(peli) == Viisinoppa:
         print(peli.otsikko)
-        if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-            uudestaan(peli)
+        while True:
+            try:
+                panos = int(input("Aseta panos väliltä 1-100: "))
+                if peli.tarkista() == 5:
+                    print(f"Kaikkien noppien silmäluku oli sama, voitit {str(panos * 5000)} pistettä!")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli)
+                        clear()
+                    else:
+                        break
+                elif peli.tarkista() == 4:
+                    print(f"Neljän eri nopan silmäluku oli sama, voitit {str(panos * 400)} pistettä!")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli)
+                        clear()
+                    else:
+                        break
+                elif peli.tarkista() == 3:
+                    print(f"Kolmen eri nopan silmäluku oli sama, voitit {str(panos * 30)} pistettä!")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli)
+                        clear()
+                    else:
+                        break
+                elif peli.tarkista() == 2:
+                    print(f"Kahden eri nopan silmäluku oli sama, voitit {str(panos * 2)} pistettä!")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli)
+                        clear()
+                    else:
+                        break
+                else:
+                    print(f"Kaikkien noppien silmäluku oli eri, hävisit {str(panos)} pistettä!")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli)
+                        clear()
+                    else:
+                        break
+
+            except Exception as e:
+                print('OOPS, tarkista syötteesi!', e)
+
+
+
+    # Tuplanoppa peli        
     elif type(peli) == Tuplanoppa:
         print(peli.otsikko)
         while True:
@@ -47,9 +90,10 @@ def pelaa(peli) -> None:
 
             except Exception as e:
                 print('OOPS, tarkista syötteesi!', e)
-       
+
+
+    # Muussa tapauksessa aloita ArvaaLuku peli   
     else:    
-        #  testi peli käyttää ArvaaLuku luokkaa
         while True:
             try:
                 arvaus = int(input(peli.otsikko + ': '))
