@@ -1,7 +1,9 @@
 import random
 
 from datetime import datetime
-#class TänäänOn:
+
+class TänäänOn:
+    pass
 
 
 
@@ -25,4 +27,4 @@ lista1=lista1.replace("]","")
 lista2 = str(viikon_päivät[päivä])
 
 
-print(lista1+", "+ "'"+lista2+"'")
+print(lista1 + ", " + "'" + lista2 + "'")

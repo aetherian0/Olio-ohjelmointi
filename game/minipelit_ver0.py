@@ -11,6 +11,7 @@ import os
 import minipelit
 from minipelit.arvaaluku import ArvaaLuku
 from minipelit.viisinoppa import Viisinoppa
+from minipelit.tuplanoppa import Tuplanoppa
 from minipelit.tänäänon import Tänäänon
 
 
@@ -24,6 +25,10 @@ def pelaa(peli) -> None:
         print(peli.otsikko)
         if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
             uudestaan(peli)
+    elif type(peli) == Tuplanoppa:
+        print(peli.otsikko)
+        if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+            uudestaan(peli)        
     else:    
         #  testi peli käyttää ArvaaLuku luokkaa
         while True:
@@ -69,10 +74,10 @@ def menu():
             break
         match valinta: #3.10 or newer
             case '1':
-              #  peli = # lisää oma peli oliosi
+                peli = Tuplanoppa()
                 print('Tuplanoppa valittu')
             case '2':
-                peli = Viisinoppa() # lisää oma peli oliosi
+                peli = Viisinoppa()
                 print('5-noppa valittu')                 
             case '3':
                 peli = ArvaaLuku()
