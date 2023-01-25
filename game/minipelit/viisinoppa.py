@@ -44,3 +44,4 @@ class Viisinoppa:
         self.noppa3 = random.randint(self.min, self.max)
         self.noppa4 = random.randint(self.min, self.max)
         self.noppa5 = random.randint(self.min, self.max)
+        self.set = {self.noppa1, self.noppa2, self.noppa3, self.noppa4, self.noppa5}
