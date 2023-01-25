@@ -10,6 +10,7 @@ import math
 import os 
 import minipelit
 from minipelit.arvaaluku import ArvaaLuku
+from minipelit.viisinoppa import ViisiNoppaa
 
 
             
@@ -17,22 +18,28 @@ def pelaa(peli) -> None:
     '''
     driveri parametrina saadulle pelille 
     '''
-    #  testi peli käyttää ArvaaLuku luokkaa
-    while True:
-        try:
-            arvaus = int(input(peli.otsikko + ': '))
-            if peli.tarkista(arvaus):
-                print(f"{peli.magic} on oikein ja vain ", \
-                  f"{peli.arvaukset} arvauksella!")
-                if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                    uudestaan(peli)
-                    clear()
+    #  mikä peli on esim. tarkistamalla sen tyyppi
+    if type(peli) == ViisiNoppaa:
+        print(peli.otsikko)
+        if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+            uudestaan(peli)
+    else:    
+        #  testi peli käyttää ArvaaLuku luokkaa
+        while True:
+            try:
+                arvaus = int(input(peli.otsikko + ': '))
+                if peli.tarkista(arvaus):
+                    print(f"{peli.magic} on oikein ja vain ", \
+                      f"{peli.arvaukset} arvauksella!")
+                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                        uudestaan(peli)
+                        clear()
+                    else:
+                        break
                 else:
-                    break
-            else:
-                print('Liian korkea! ' if arvaus > peli.magic else 'Liian matala!')
-        except Exception as e:
-            print('OOPS, tarkista syötteesi!', e)
+                    print('Liian korkea! ' if arvaus > peli.magic else 'Liian matala!')
+            except Exception as e:
+                print('OOPS, tarkista syötteesi!', e)
             
     
  
@@ -64,7 +71,7 @@ def menu():
               #  peli = # lisää oma peli oliosi
                 print('Tuplanoppa valittu')
             case '2':
-              # peli = # lisää oma peli oliosi
+                peli = ViisiNoppaa() # lisää oma peli oliosi
                 print('5-noppa valittu')                 
             case '3':
                 peli = ArvaaLuku()
