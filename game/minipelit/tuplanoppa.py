@@ -1,3 +1,5 @@
+# kirjoita koko koodi uudelleen class muodossa
+
 import random
 
 def main() -> None:
