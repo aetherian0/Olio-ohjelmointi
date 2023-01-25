@@ -1,6 +1,6 @@
-class ViisiNoppaa:  #   muutettu UML luokkakaavion mukaiseksi
+class Viisinoppa:  #   muutettu UML luokkakaavion mukaiseksi
     def __init__(self):
-        self.otsikko = "ViisiNoppaa" # print("ViisiNoppaa") arvo on None
+        self.otsikko = "Viisinoppa"
         self.min = 0
         self.max = 0
         self.noppa1 = 0
