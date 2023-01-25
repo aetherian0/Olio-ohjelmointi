@@ -20,7 +20,6 @@ class Tuplanoppa:
         '''
         Tarkistaa onko arvaus oikein suhteessa noppa_summaan.
         Yli, alle tai tasan 7
-        
         '''
         if arvaus == "tasan" and self.noppa_summa == 7 or arvaus == "alle" and self.noppa_summa <= 6 or arvaus == "yli" and self.noppa_summa >= 8:
             return True
