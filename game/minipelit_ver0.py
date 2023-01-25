@@ -12,7 +12,7 @@ import minipelit
 from minipelit.arvaaluku import ArvaaLuku
 from minipelit.viisinoppa import Viisinoppa
 from minipelit.tuplanoppa import Tuplanoppa
-from minipelit.tänäänon import Tänäänon
+from minipelit.tänäänon import TänäänOn
 
 
             
@@ -75,10 +75,8 @@ def menu():
         match valinta: #3.10 or newer
             case '1':
                 peli = Tuplanoppa()
-                print('Tuplanoppa valittu')
             case '2':
-                peli = Viisinoppa()
-                print('5-noppa valittu')                 
+                peli = Viisinoppa()               
             case '3':
                 peli = ArvaaLuku()
             case _:
