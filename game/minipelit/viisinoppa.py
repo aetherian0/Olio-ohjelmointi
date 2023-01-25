@@ -1,5 +1,11 @@
 class Viisinoppa:  #   muutettu UML luokkakaavion mukaiseksi
     def __init__(self):
+        '''
+        attribuutit
+            otsikko : str, 
+            min, max : int, 
+            nopat : int, 
+        '''
         self.otsikko = "Viisinoppa"
         self.min = 0
         self.max = 0
