@@ -24,16 +24,21 @@ class Viisinoppa:
         Tarkistaa onko nopissa samoja silmälukuja
         voitto riippuu montako samaa silmälukua nopista löytyy
         '''
+        # Kaikki nopat ovat eri, settiin jää 5 eri lukua
         if len(self.set) == 5:
-            return 5
+            return 1
+        # 2 nopista on samoja, settiin jää 4 eri lukua
         elif len(self.set) == 4:
-            return 4
+            return 2
+        # 3 nopista on samoja, settiin jää 3 eri lukua
         elif len(self.set) == 3:
             return 3
+        # 4 nopista on samoja, settiin jää 2 eri lukua
         elif len(self.set) == 2:
-            return 2
+            return 4
+        # Kaikki nopista ovat samoja, settiin jää vain 1 luku
         else:
-            return 1    
+            return 5    
 
     def reset(self):
         '''
