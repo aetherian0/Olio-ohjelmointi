@@ -10,7 +10,6 @@ class TuplaNoppa:
     def tarkista(self, parameter): 
         return False 
 
-
     def reset(self): 
         raise NotImplementedError 
 

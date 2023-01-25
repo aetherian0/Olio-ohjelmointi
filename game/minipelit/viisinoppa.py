@@ -9,6 +9,7 @@ class ViisiNoppaa:  #   muutettu UML luokkakaavion mukaiseksi
         self.noppa4 = 0
         self.noppa5 = 0
  
+ 
     def tarkista(self):
         return 0
 

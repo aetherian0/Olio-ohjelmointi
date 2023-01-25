@@ -1,2 +1,4 @@
 class TänäänOn:
-    pass
+    def __init__(self):
+        self.otsikko = "Tänään on"
+        pass
