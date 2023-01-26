@@ -28,39 +28,24 @@ def pelaa(peli) -> None:
                 panos = int(input("Aseta panos väliltä 1-100: "))
                 if peli.tarkista() == 5:
                     print(f"Kaikkien noppien silmäluku oli sama, voitit {str(panos * 5000)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    
                 elif peli.tarkista() == 4:
                     print(f"Neljän eri nopan silmäluku oli sama, voitit {str(panos * 400)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    
                 elif peli.tarkista() == 3:
                     print(f"Kolmen eri nopan silmäluku oli sama, voitit {str(panos * 30)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    
                 elif peli.tarkista() == 2:
                     print(f"Kahden eri nopan silmäluku oli sama, voitit {str(panos * 2)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    
                 else:
                     print(f"Kaikkien noppien silmäluku oli eri, hävisit {str(panos)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+
+                if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
                         uudestaan(peli)
                         clear()
-                    else:
-                        break
+                else:
+                    break
 
             except Exception as e:
                 print('OOPS, tarkista syötteesi!', e)
