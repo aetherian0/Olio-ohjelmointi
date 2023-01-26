@@ -104,6 +104,7 @@ def uudestaan(peli):
     peli.reset()
                       
 def menu():
+
     # Käynnistä tänään on peli ohjelman käynnistyessä
     peli = Tänäänon()
     while True:
@@ -112,10 +113,10 @@ def menu():
             arvaus = input("Mikä viikonpäivä yllä olevista päivistä tänään on: ") 
             if peli.tarkista(arvaus):
                 peli.status = "OIKEIN"
-                print("Vastauksesi on oikein! Tänään on " + peli.tänään)
+                print("Vastauksesi on oikein! Tänään on " + peli.tänään + "!")
                 break
             else:
-                break
+                print("Vastauksesi on väärin")
 
         except Exception as e:
                 print('OOPS, tarkista syötteesi!', e)

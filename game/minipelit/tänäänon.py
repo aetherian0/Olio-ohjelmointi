@@ -30,7 +30,7 @@ class Tänäänon:
         self.randompäivä3 = self.viikonpäivät[2]
 
         self.lista = [self.tänään, self.randompäivä1, self.randompäivä2, self.randompäivä3]
-        
+        random.shuffle(self.lista)
    
     def tarkista(self, arvaus):
         '''
