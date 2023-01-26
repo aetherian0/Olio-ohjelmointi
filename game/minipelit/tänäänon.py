@@ -9,7 +9,8 @@ class Tänäänon:
             viikonpäivät : list, lista kaikista viikonpäivistä
             tänään : str, päivän nimi kirjaimina
             arvausten_määrä : int, arvausten määrä
-            randompäivä1, 2, 3: str, arvottu päivä
+            randompäivä1 : 2, 3: str, arvottu päivä
+            lista : str, lista mikä sisältää oikean päivän ja kolme arvottua päivää
         '''
         self.otsikko = "Tänään on"
         self.viikonpäivät = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -26,7 +27,6 @@ class Tänäänon:
         self.randompäivä2 = self.viikonpäivät[1]
         self.randompäivä3 = self.viikonpäivät[2]
 
-        # Luo listan missä on oikea päivä sekä 3 muuta päivää
         self.lista = [self.tänään, self.randompäivä1, self.randompäivä2, self.randompäivä3]
         
    
