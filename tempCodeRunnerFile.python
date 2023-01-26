@@ -1,0 +1,14 @@
+import random
+from datetime import datetime
+
+# Kertoo päivämäärän
+Päivämäärä = datetime.now()
+
+# Kertoo päivän numerona 0-6
+päivä = Päivämäärä.weekday()
+
+x = datetime.now()
+
+print(Päivämäärä)
+print(päivä)
+print(x.strftime("%A"))
