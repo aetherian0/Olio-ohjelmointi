@@ -27,7 +27,7 @@ def pelaa(peli) -> None:
             try:
                 panos = int(input("Aseta panos väliltä 1-100: "))
                 if peli.tarkista() == 5:
-                    print(f"Kaikkien noppien silmäluku oli sama, voitit {str(panos * 5000)} pistettä!")
+                    print(f"Kaikkien noppien silmäluvut olivat samat, voitit {str(panos * 5000)} pistettä!")
                     
                 elif peli.tarkista() == 4:
                     print(f"Neljän eri nopan silmäluku oli sama, voitit {str(panos * 400)} pistettä!")
