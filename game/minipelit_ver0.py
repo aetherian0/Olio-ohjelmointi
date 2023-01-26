@@ -12,7 +12,7 @@ import minipelit
 from minipelit.arvaaluku import ArvaaLuku
 from minipelit.viisinoppa import Viisinoppa
 from minipelit.tuplanoppa import Tuplanoppa
-from minipelit.tänäänon import TänäänOn
+from minipelit.tänäänon import Tänäänon
 
 
             
@@ -26,41 +26,29 @@ def pelaa(peli) -> None:
         while True:
             try:
                 panos = int(input("Aseta panos väliltä 1-100: "))
+
+                # Vaihtoehdot sillo monessako nopassa on sama silmäluku
                 if peli.tarkista() == 5:
-                    print(f"Kaikkien noppien silmäluku oli sama, voitit {str(panos * 5000)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    print(f"Kaikkien noppien silmäluvut olivat samat, voitit {str(panos * 5000)} pistettä!")
+                    
                 elif peli.tarkista() == 4:
                     print(f"Neljän eri nopan silmäluku oli sama, voitit {str(panos * 400)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    
                 elif peli.tarkista() == 3:
                     print(f"Kolmen eri nopan silmäluku oli sama, voitit {str(panos * 30)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    
                 elif peli.tarkista() == 2:
                     print(f"Kahden eri nopan silmäluku oli sama, voitit {str(panos * 2)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli)
-                        clear()
-                    else:
-                        break
+                    
                 else:
                     print(f"Kaikkien noppien silmäluku oli eri, hävisit {str(panos)} pistettä!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+
+                # Peli päättyi, aloitatko pelin alusta?
+                if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
                         uudestaan(peli)
                         clear()
-                    else:
-                        break
+                else:
+                    break
 
             except Exception as e:
                 print('OOPS, tarkista syötteesi!', e)
