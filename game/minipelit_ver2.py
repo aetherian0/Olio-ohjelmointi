@@ -107,8 +107,21 @@ def uudestaan(peli):
     peli.reset()
                       
 def menu():
-    peli = None
-    
+    # Käynnistä tänään on peli ohjelman käynnistyessä
+    peli = Tänäänon()
+    while True:
+        try:
+            print(f"{peli.lista}")
+            arvaus = input("Mikä viikonpäivä yllä olevista päivistä tänään on: ") 
+            if peli.tarkista(arvaus):
+                print("Vastauksesi on oikein! Tänään on " + peli.tänään)
+                break
+            else:
+                break
+
+        except Exception as e:
+                print('OOPS, tarkista syötteesi!', e)
+
     while True:
         clear()
         print('''
@@ -142,6 +155,7 @@ def clear():
     if os.name in ('nt', 'dos'):  # Windowsissa cls1
         command = 'cls'
     os.system(command)
-        
+
+ # Käynnistää ohjelman       
 if __name__ == '__main__':
     menu()
