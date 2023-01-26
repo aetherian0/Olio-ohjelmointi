@@ -12,7 +12,7 @@ import minipelit
 from minipelit.arvaaluku import ArvaaLuku
 from minipelit.viisinoppa import Viisinoppa
 from minipelit.tuplanoppa import Tuplanoppa
-from minipelit.tänäänon import TänäänOn
+from minipelit.tänäänon import Tänäänon
 
 
             
