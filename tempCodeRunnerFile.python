@@ -12,3 +12,21 @@ x = datetime.now()
 print(Päivämäärä)
 print(päivä)
 print(x.strftime("%A"))
+
+viikonpäivät = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+viikonpäivät.remove(x.strftime("%A"))
+
+print(viikonpäivät)
+
+päiväys = datetime.now()
+tänään = päiväys.strftime("%A")
+
+random.shuffle(viikonpäivät)
+
+päivä1 = viikonpäivät[0]
+päivä2 = viikonpäivät[1]
+päivä3 = viikonpäivät[2]
+lista = [tänään, päivä1, päivä2, päivä3]
+
+print(lista)

@@ -7,17 +7,26 @@ class Tänäänon:
         attribuutit
             otsikko : str, luokan nimi ja kuvaava ohje
             viikonpäivät : list, lista kaikista viikonpäivistä
-            päiväys : date, kokonainen päivämäärä numeroina
-            päivä_numerona : int, monesko päivä viikosta numerona
             tänään : str, päivän nimi kirjaimina
             arvausten_määrä : int, arvausten määrä
         '''
         self.otsikko = "Tänään on"
         self.viikonpäivät = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        self.päiväys = datetime.now()
-        self.päivä_numerona = Päivämäärä.weekday()
-        self.tänään = self.päiväys.strftime("%A")
+        self.tänään = datetime.now().strftime("%A")
         self.arvausten_määrä = 0
+
+        # Poistaa tämän hetkisen päivän viikonpäivät listasta
+        self.viikonpäivät.remove(self.tänään)
+
+        # Sekoittaa jäljellä olevat päivät viikonpäivät listassa
+        random.shuffle(self.viikonpäivät)
+
+        self.randompäivä1 = self.viikonpäivät[0]
+        self.randompäivä2 = self.viikonpäivät[1]
+        self.randompäivä3 = self.viikonpäivät[2]
+
+        # Luo lista missä oikea päivä + 3 random päivää
+        self.lista = [self.tänään, self.randompäivä1, self.randompäivä2, self.randompäivä3]
         
    
     def tarkista(self, arvaus):
@@ -28,32 +37,10 @@ class Tänäänon:
         return arvaus == self.tänään
 
     def reset(self):
-        pass	
+        '''
+        resetoi olion tilan, arpoo uudet random päivät
+        '''
+        self.arvausten_määrä = 0
 
     def tallennus(self):
         pass
-
-
-
-# Kertoo päivämäärän
-Päivämäärä = datetime.now()
-
-# Kertoo päivän numerona 0-6
-päivä = Päivämäärä.weekday()
-
-#Kertoo viikonpäivän
-viikon_päivät=["Maanantai", "Tiistai", "Keskiviikko","Torstai","Perjantai","Lauantai","Sunnuntai"]
-viikon_päivät1=["Maanantai", "Tiistai", "Keskiviikko","Torstai","Perjantai","Lauantai","Sunnuntai"]
-viikon_päivät1.remove(viikon_päivät1[päivä])
-#print(viikon_päivät)
-
-
-#print(viikon_päivät[päivä])
-
-Random=random.sample(viikon_päivät1, 3)
-lista1 = str(Random)
-lista1 = lista1.replace("[","")
-lista1 = lista1.replace("]","")
-lista2 = str(viikon_päivät[päivä])
-
-print(lista1 + ", " + "'" + lista2 + "'")
