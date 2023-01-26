@@ -63,19 +63,16 @@ def pelaa(peli) -> None:
                 arvaus = input("Onko kahden nopan summa yli, alle vai tasan 7? \nAnna vastaus tähän: ")
                 if peli.tarkista(arvaus):
                     print(f"{arvaus} on oikein, noppien summa oli {peli.noppa_summa}!")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
-                        uudestaan(peli) 
-                        clear()
-                    else:
-                        break
                 else:
                     print(f"Vastauksesi on väärin! Oikea vastaus oli {peli.noppa_summa}")
-                    if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
+                
+                # Peli päättyi, aloitatko pelin alusta?
+                if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
                         uudestaan(peli) 
                         clear()
-                    else:
-                        break
-
+                else:
+                    break
+                    
             except Exception as e:
                 print('OOPS, tarkista syötteesi!', e)
 
@@ -107,8 +104,23 @@ def uudestaan(peli):
     peli.reset()
                       
 def menu():
-    peli = None
-    
+
+    # Käynnistä tänään on peli ohjelman käynnistyessä
+    peli = Tänäänon()
+    while True:
+        try:
+            print(f"{peli.lista}")
+            arvaus = input("Mikä viikonpäivä yllä olevista päivistä tänään on: ") 
+            if peli.tarkista(arvaus):
+                peli.status = "OIKEIN"
+                print("Vastauksesi on oikein! Tänään on " + peli.tänään + "!")
+                break
+            else:
+                print("Vastauksesi on väärin")
+
+        except Exception as e:
+                print('OOPS, tarkista syötteesi!', e)
+
     while True:
         clear()
         print('''
@@ -142,6 +154,7 @@ def clear():
     if os.name in ('nt', 'dos'):  # Windowsissa cls1
         command = 'cls'
     os.system(command)
-        
+
+ # Käynnistää ohjelman       
 if __name__ == '__main__':
     menu()
