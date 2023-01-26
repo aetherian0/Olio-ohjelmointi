@@ -9,6 +9,7 @@ class Tänäänon:
             viikonpäivät : list, lista kaikista viikonpäivistä
             tänään : str, päivän nimi kirjaimina
             arvausten_määrä : int, arvausten määrä
+            randompäivä1, 2, 3: str, arvottu päivä
         '''
         self.otsikko = "Tänään on"
         self.viikonpäivät = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
