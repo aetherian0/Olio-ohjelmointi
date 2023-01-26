@@ -25,7 +25,7 @@ class Tänäänon:
         self.randompäivä2 = self.viikonpäivät[1]
         self.randompäivä3 = self.viikonpäivät[2]
 
-        # Luo lista missä oikea päivä + 3 random päivää
+        # Luo listan missä on oikea päivä sekä 3 muuta päivää
         self.lista = [self.tänään, self.randompäivä1, self.randompäivä2, self.randompäivä3]
         
    
