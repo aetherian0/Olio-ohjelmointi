@@ -43,7 +43,7 @@ def pelaa(peli) -> None:
                 else:
                     print(f"Kaikkien noppien silmäluku oli eri, hävisit {str(panos)} pistettä!")
 
-                # Peli päättyi, aloitatko pelin alusta
+                # Peli päättyi, aloitatko pelin alusta?
                 if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
                         uudestaan(peli)
                         clear()
