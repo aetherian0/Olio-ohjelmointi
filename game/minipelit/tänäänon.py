@@ -11,11 +11,13 @@ class Tänäänon:
             arvausten_määrä : int, arvausten määrä
             randompäivä1 : 2, 3: str, arvottu päivä
             lista : str, lista mikä sisältää oikean päivän ja kolme arvottua päivää
+            status : str, merkintä siitä monennellako arvauksella pelaaja arvasi oikein
         '''
         self.otsikko = "Tänään on"
         self.viikonpäivät = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         self.tänään = datetime.now().strftime("%A")
         self.arvausten_määrä = 0
+        self.status = ""
 
         # Poistaa tämän hetkisen päivän viikonpäivät listasta
         self.viikonpäivät.remove(self.tänään)
