@@ -26,6 +26,8 @@ def pelaa(peli) -> None:
         while True:
             try:
                 panos = int(input("Aseta panos väliltä 1-100: "))
+
+                # Vaihtoehdot sillo monessako nopassa on sama silmäluku
                 if peli.tarkista() == 5:
                     print(f"Kaikkien noppien silmäluvut olivat samat, voitit {str(panos * 5000)} pistettä!")
                     
@@ -41,6 +43,7 @@ def pelaa(peli) -> None:
                 else:
                     print(f"Kaikkien noppien silmäluku oli eri, hävisit {str(panos)} pistettä!")
 
+                # Peli päättyi, aloitatko pelin alusta
                 if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
                         uudestaan(peli)
                         clear()
