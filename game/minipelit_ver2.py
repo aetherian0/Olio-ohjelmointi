@@ -111,6 +111,7 @@ def menu():
             print(f"{peli.lista}")
             arvaus = input("Mikä viikonpäivä yllä olevista päivistä tänään on: ") 
             if peli.tarkista(arvaus):
+                peli.status = "OIKEIN"
                 print("Vastauksesi on oikein! Tänään on " + peli.tänään)
                 break
             else:

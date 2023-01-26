@@ -39,20 +39,5 @@ class Tänäänon:
         self.arvausten_määrä += 1
         return arvaus == self.tänään
 
-    def reset(self):
-        '''
-        resetoi olion tilan, arpoo uudet random päivät
-        '''
-        self.arvausten_määrä = 0
-
-        # Koodi uuden listan luomiselle, joka sisältää uudet 3 random päivää + oikean päivän
-        self.viikonpäivät = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        self.viikonpäivät.remove(self.tänään)
-        random.shuffle(self.viikonpäivät)
-        self.randompäivä1 = self.viikonpäivät[0]
-        self.randompäivä2 = self.viikonpäivät[1]
-        self.randompäivä3 = self.viikonpäivät[2]
-        self.lista = [self.tänään, self.randompäivä1, self.randompäivä2, self.randompäivä3]
-
     def tallennus(self):
         pass
