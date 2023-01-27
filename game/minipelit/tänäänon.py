@@ -32,12 +32,14 @@ class Tänäänon:
         self.lista = [self.tänään, self.randompäivä1, self.randompäivä2, self.randompäivä3]
         random.shuffle(self.lista)
    
+
     def tarkista(self, arvaus):
         '''
         Tarkistaa onko arvattu viikonpäivä oikea sekä kasvattaa arvausten määrää yhdellä
         '''
         self.arvausten_määrä += 1
         return arvaus == self.tänään
+
 
     def tallennus(self):
         pass

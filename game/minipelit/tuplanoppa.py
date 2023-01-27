@@ -26,6 +26,7 @@ class Tuplanoppa:
         else:
             return False
 
+
     def reset(self): 
         '''
         resetoi olion tilan, arpoo uudet noppien silmäluvut
@@ -33,6 +34,7 @@ class Tuplanoppa:
         self.noppa1 = random.randint(self.min, self.max)
         self.noppa2 = random.randint(self.min, self.max)
         self.noppa_summa = self.noppa1 + self.noppa2
+
 
     def tallennus(self): 
         pass
