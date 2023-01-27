@@ -20,28 +20,13 @@ def pelaa(peli) -> None:
     '''
     driveri parametrina saadulle pelille 
     '''
+    
     #  Viisinoppa peli
     if type(peli) == Viisinoppa:
         print(peli.otsikko)
         while True:
             try:
-                panos = int(input("Aseta panos väliltä 1-100: "))
-
-                # Vaihtoehdot sille monessako nopassa on sama silmäluku
-                if peli.tarkista() == 5:
-                    print(f"Kaikkien noppien silmäluvut olivat samat, voitit {str(panos * 5000)} pistettä!")
-                    
-                elif peli.tarkista() == 4:
-                    print(f"Neljän eri nopan silmäluku oli sama, voitit {str(panos * 400)} pistettä!")
-                    
-                elif peli.tarkista() == 3:
-                    print(f"Kolmen eri nopan silmäluku oli sama, voitit {str(panos * 30)} pistettä!")
-                    
-                elif peli.tarkista() == 2:
-                    print(f"Kahden eri nopan silmäluku oli sama, voitit {str(panos * 2)} pistettä!")
-                    
-                else:
-                    print(f"Kaikkien noppien silmäluku oli eri, hävisit {str(panos)} pistettä!")
+                peli.tarkista()
 
                 # Peli päättyi, aloitatko pelin alusta?
                 if input('Haluatko pelata uudelleen [K|E]? ').upper() == 'K':
@@ -102,7 +87,8 @@ def uudestaan(peli):
     alustaa pelin uudelleen kutsumalla sen reset-metodia
     '''
     peli.reset()
-                      
+
+
 def menu():
 
     # Käynnistä tänään on peli ohjelman käynnistyessä
@@ -149,11 +135,13 @@ def menu():
             pelaa(peli) #  pelaa kunnes peli on valmis ja käyttäjä ei halua uutta peliä
             peli = None #  pelaaja voi valita uuden pelin tai lopettaa
 
+
 def clear():
     command = 'clear'
     if os.name in ('nt', 'dos'):  # Windowsissa cls1
         command = 'cls'
     os.system(command)
+
 
  # Käynnistää ohjelman       
 if __name__ == '__main__':

@@ -6,7 +6,6 @@ class ArvaaLuku:
     ja osaa tarkistaa onko annettu luku sama kuin magic ja osaa
     resetoida tilansa
     '''
-
     def __init__(self):
         '''
         attribuutit
@@ -22,6 +21,7 @@ class ArvaaLuku:
         self.magic = random.randint(self.min, self.max)
         self.arvaukset = 0
 
+
     def tarkista(self, arvaus):
         '''
         Tarkistaa onko annettu luku sama kuin magic ja päivittää arvaukset
@@ -35,6 +35,7 @@ class ArvaaLuku:
 
         self.arvaukset += 1
         return arvaus == self.magic
+
 
     def reset(self):
         '''
