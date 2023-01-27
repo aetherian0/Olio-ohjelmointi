@@ -20,6 +20,7 @@ def pelaa(peli) -> None:
     '''
     driveri parametrina saadulle pelille 
     '''
+    
     #  Viisinoppa peli
     if type(peli) == Viisinoppa:
         print(peli.otsikko)
