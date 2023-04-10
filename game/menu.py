@@ -21,8 +21,6 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Minipelikokoelma")
-        näytön_leveys = self.winfo_screenwidth() / 2
-        näytös_korkeus = self.winfo_screenheight() / 2
         self.geometry("700x400+610+200")  
         self.configure(background="grey")
 
@@ -49,9 +47,9 @@ class App(tk.Tk):
 
 
     def avaa_tanaanon(self):
-        # Luo uuden ikkunan
+
+        # Luo uuden ikkunan ja määritetään peli
         uusi = tk.Toplevel()
-        # Antaa ikkunalle nimen klikatun napin mukaan
         pelin_nimi = self.tanaanon["text"]
         uusi.title(pelin_nimi)
         uusi.geometry("700x400")
@@ -61,9 +59,9 @@ class App(tk.Tk):
 
 
     def avaa_arvaaluku(self):
+
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
-        # Antaa ikkunalle nimen klikatun napin mukaan
         pelin_nimi = self.arvaaluku["text"]
         uusi.title(pelin_nimi)
         uusi.geometry("700x400")
@@ -73,9 +71,9 @@ class App(tk.Tk):
 
 
     def avaa_viisinoppa(self):
+
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
-        # Antaa ikkunalle nimen klikatun napin mukaan
         pelin_nimi = self.viisinoppa["text"]
         uusi.title(pelin_nimi)
         uusi.geometry("700x400")
@@ -85,9 +83,9 @@ class App(tk.Tk):
 
 
     def avaa_tuplanoppa(self):
+
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
-        # Antaa ikkunalle nimen klikatun napin mukaan
         pelin_nimi = self.tuplanoppa["text"]
         uusi.title(pelin_nimi)
         uusi.geometry("700x400")
