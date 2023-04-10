@@ -1,41 +1,61 @@
 import random
 
-class Tuplanoppa: 
-    def __init__(self): 
+class Tuplanoppa:
+    def __init__(self):
+        self.otsikko = "Tuplanoppa"
+        self.__heitto1 = random.randint(1,6)
+        self.__heitto2 = random.randint(1,6)
+        self.__sum = self.__heitto1+self.__heitto2
+        self.pisteet = 0
+        self.panos = int(input("Mikä on panoksesi? (1-100): "))
+        self.voitto = self.panos * 100
+        self.havio = self.panos * 10
+
+
+    @property
+    def heitto1(self):
+        return self.__heitto1
+
+    @property
+    def heitto2(self):
+        return self.__heitto2
+
+    @property
+    def sum(self):
+        return self.__sum
+
+    @sum.setter
+    def sum(self, value):
+        raise ValueError("Summa on vain luettavissa")
+
+	
+    def tarkista(self,arvaus):
         '''
-        attribuutit
-            otsikko : str, luokan nimi
-            min, max : int, generoitavan alueen rajat
-            noppa1, noppa 2 : int, noppien silmäluvut
+        Tarkistaa onko annettu luku sama kuin heitetty summa
+
         '''
-        self.otsikko = "Tuplanoppa" 
-        self.min = 0 
-        self.max = 6 
-        self.noppa1 = random.randint(self.min, self.max)
-        self.noppa2 = random.randint(self.min, self.max)
-        self.noppa_summa = self.noppa1 + self.noppa2
+        if (self.__sum == 7) and (arvaus == 7):
+            
+            return arvaus
 
+        elif self.__sum > 7 and arvaus > 7:
+            
+            return arvaus 
+        
+        elif self.__sum < 7 and arvaus < 7:
+            
+            return arvaus
 
-    def tarkista(self, arvaus): 
+    def reset(self):
         '''
-        Tarkistaa onko arvaus oikein suhteessa noppa_summaan.
-        Yli, alle tai tasan 7
+        resetoi olion tilan 
         '''
-        if arvaus == "tasan" and self.noppa_summa == 7 or arvaus == "alle" and self.noppa_summa <= 6 or arvaus == "yli" and self.noppa_summa >= 8:
-            return True
-        else:
-            return False
-
-
-    def reset(self): 
-        '''
-        resetoi olion tilan, arpoo uudet noppien silmäluvut
-        '''
-        self.noppa1 = random.randint(self.min, self.max)
-        self.noppa2 = random.randint(self.min, self.max)
-        self.noppa_summa = self.noppa1 + self.noppa2
-
-
-    def tallennus(self): 
-        pass
-
+        
+        self.__heitto1 = random.randint(1,6)
+        self.__heitto2 = random.randint(1,6)
+        self.__sum = self.__heitto1+self.__heitto2
+        self.pisteet = 0
+        self.panos = int (input("Mikä on panoksesi? (1-100): "))
+        self.arvaus = 0
+        self.voitto = self.panos * 100
+        self.havio = self.panos * 10

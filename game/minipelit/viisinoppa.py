@@ -1,65 +1,67 @@
 import random
 
-class Viisinoppa:  
+class Viisinoppa:
     def __init__(self):
-        '''
-        attribuutit
-            otsikko : str, luokan nimi
-            min, max : int, generoitavan alueen rajat
-            nopat : int, noppien silmäluvut
-        '''
         self.otsikko = "Viisinoppa"
-        self.min = 0
-        self.max = 6
-        self.noppa1 = random.randint(self.min, self.max)
-        self.noppa2 = random.randint(self.min, self.max)
-        self.noppa3 = random.randint(self.min, self.max)
-        self.noppa4 = random.randint(self.min, self.max)
-        self.noppa5 = random.randint(self.min, self.max)
-        self.set = {self.noppa1, self.noppa2, self.noppa3, self.noppa4, self.noppa5}
+        self.min = 1    # ei vielä käytössä 
+        self.max = 100  # ei vielä käytössä 
+        self.tulos = 0
+        self.alkupotti = 100    # ei vielä käytössä 
+        self.potti = 0  # ei vielä käytössä            
+        self.__heitot = []
+        
+
+    @property
+    def heitot(self):
+        return self.__heitot
+
+    @heitot.setter
+    def heitot(self, value):
+        raise ValueError("Nopat ovat vain luettavissa")
  
 
-    def aseta_panos(self):
+    def tarkistus(self, panos:int)-> bool:
         '''
-        Asettaa panoksen suuruuden
+        Heittää nopat ja kertoo panoksen mikäli saadaan samoja silmälukuja
         '''
-        panos = int(input("Aseta panos väliltä 1-100: "))
-        return panos
- 
-
-    def tarkista(self):
-        '''
-        Tarkistaa onko nopissa samoja silmälukuja
-        voitto riippuu montako samaa silmälukua nopista löytyy
-        '''
-        # Kaikki nopat ovat eri, settiin jää 5 eri lukua
-        if len(self.set) == 5:
-            print(f"Kaikkien noppien silmäluku oli eri, hävisit {str(self.aseta_panos())} pistettä!")
-
-        # 2 nopista on samoja, settiin jää 4 eri lukua
-        elif len(self.set) == 4:
-            print(f"Kahden eri nopan silmäluku oli sama, voitit {str(self.aseta_panos() * 2)} pistettä!")
-
-        # 3 nopista on samoja, settiin jää 3 eri lukua
-        elif len(self.set) == 3:
-            print(f"Kolmen eri nopan silmäluku oli sama, voitit {str(self.aseta_panos() * 30)} pistettä!")
-
-        # 4 nopista on samoja, settiin jää 2 eri lukua
-        elif len(self.set) == 2:
-            print(f"Neljän eri nopan silmäluku oli sama, voitit {str(self.aseta_panos() * 400)} pistettä!")
-
-        # Kaikki nopista ovat samoja, settiin jää vain 1 luku
+        for i in range(5):
+            heitto = random.randint(1,6)
+            self.__heitot.append(heitto)
+        if len(set(self.__heitot)) == 1: # 5 samaa
+            panos *= 5000
+            self.tulos = panos
+            return True
+        elif self.__heitot.count(max(set(self.__heitot), key = self.__heitot.count)) == 4: # 4 samaa
+            panos *= 400
+            self.tulos = panos
+            return True
+        elif self.__heitot.count(max(set(self.__heitot), key = self.__heitot.count)) == 3: # 3 samaa
+            panos *= 30
+            self.tulos = panos
+            return True
+        elif self.__heitot.count(max(set(self.__heitot), key = self.__heitot.count)) == 2: # 2 samaa
+            panos *= 2
+            self.tulos = panos
+            return True
         else:
-            print(f"Kaikkien noppien silmäluvut olivat samat, voitit {str(self.aseta_panos() * 5000)} pistettä!") 
+            panos *= 0                                                               # 0 samaa
+            self.tulos = panos
+            return False
 
 
+    def tallennus(self):
+        '''
+        Tallennukseen, ei vielä käytössä
+        '''
+        return 0
     def reset(self):
         '''
-        resetoi olion tilan, arpoo uudet noppien silmäluvut
+        Resetoi olion tilan
         '''
-        self.noppa1 = random.randint(self.min, self.max)
-        self.noppa2 = random.randint(self.min, self.max)
-        self.noppa3 = random.randint(self.min, self.max)
-        self.noppa4 = random.randint(self.min, self.max)
-        self.noppa5 = random.randint(self.min, self.max)
-        self.set = {self.noppa1, self.noppa2, self.noppa3, self.noppa4, self.noppa5}
+   
+        self.otsikko = "Viisinoppa"
+        self.min = 1
+        self.max = 100
+        self.tulos = 0
+        self.alkupotti = 100
+        self.__heitot = []
