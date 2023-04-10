@@ -6,7 +6,7 @@ class ArvaaLuku:
     ja osaa tarkistaa onko annettu luku magic-listalla ja osaa
     resetoida tilansa
     '''
-    def __init__(self, otsikko: str, vali : range, lukuja=1, unique=True)-> None:
+    def __init__(self):
         '''
         parametrit:
             otsikko : str, pelin kuvaava nimi
@@ -23,10 +23,10 @@ class ArvaaLuku:
             arvaukset, kaikki arvaukset sekä oikeat että väärät        
         '''
 
-        self.otsikko = otsikko
-        self.vali = vali
-        self.unique = unique  
-        self.lukuja = lukuja
+        self.otsikko = ' Arvaa luku väliltä 1..9 '
+        self.vali = range(1, 10)
+        self.unique = True  
+        self.lukuja = 1
         self.__magic = random.choices(self.vali, k=self.lukuja) #@ver3       
         self.arvaukset = {'oikein':set(), 'väärin':set()} # kaikki arvaukset
         print(self.__magic)

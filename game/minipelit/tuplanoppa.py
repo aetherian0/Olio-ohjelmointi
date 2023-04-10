@@ -55,7 +55,7 @@ class Tuplanoppa:
         self.__heitto2 = random.randint(1,6)
         self.__sum = self.__heitto1+self.__heitto2
         self.pisteet = 0
-        self.panos = int (input("Mikä on panoksesi? (1-100): "))
+        self.panos = int(input("Mikä on panoksesi? (1-100): "))
         self.arvaus = 0
         self.voitto = self.panos * 100
         self.havio = self.panos * 10
