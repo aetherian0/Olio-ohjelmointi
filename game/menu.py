@@ -70,6 +70,7 @@ class App(tk.Tk):
 
             # Luo uuden ikkunan ja määritetään peli
             uusi = tk.Toplevel()
+            peli = Tanaanonpeli()
             pelin_nimi = self.tanaanon["text"]
             uusi.title(pelin_nimi)
             uusi.geometry("700x400")
@@ -77,11 +78,14 @@ class App(tk.Tk):
             kysymys.grid(column = 0, row = 0)
             uusi.configure(background="grey")
 
+            self.pelaa(peli)
+
 
     def avaa_arvaaluku(self):
 
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
+        peli = ArvaaLuku()
         pelin_nimi = self.arvaaluku["text"]
         uusi.title(pelin_nimi)
         uusi.geometry("700x400")
@@ -93,6 +97,7 @@ class App(tk.Tk):
     def avaa_viisinoppa(self):
 
         # Luo uuden ikkunan
+        peli = Viisinoppa()
         uusi = tk.Toplevel()
         pelin_nimi = self.viisinoppa["text"]
         uusi.title(pelin_nimi)
@@ -106,6 +111,7 @@ class App(tk.Tk):
 
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
+        peli = Tuplanoppa()
         pelin_nimi = self.tuplanoppa["text"]
         uusi.title(pelin_nimi)
         uusi.geometry("700x400")
@@ -197,35 +203,20 @@ class App(tk.Tk):
                         print("Vain numerot käyvät.", r)
                 """
 
-        #Tänään on peli (alunperin Inkan vastuulla, hän ei saanut tehtyä koodia)
-        #Uuden koodin kirjoittanut Arttu
+
         elif peli.otsikko == "Tänään on -peli":
-
-            # Avaa tekstitiedoston ja tarkistaa onko peliä pelattu jo tänään, jos ei ole niin tallentaa tämän päivän numeron tekstitiedostoon
-            
-            tiedosto = open("päivä.txt", "r")
-            z = tiedosto.readline()
-            x = datetime.datetime.today()
-            y = x.strftime("%Y-%m-%d")
-            if z == y:
-                print("Olet pelannut peliä tänään jo")
-                tiedosto.close()
-            else:    
-                tiedosto = open("päivä.txt", "w")
-                tänään = datetime.date.today()
-                tiedosto.write(str(tänään))
-                tiedosto.close()
-                while True:
-                    try:
-                        if peli.tarkistus(input("Mikä päivä tänään on?:")) == True:
-                            print("Oikein! Tänään on " + str(peli.viikko[peli.paiva]) + ".")
-                            break
-                        else:
-                            print("Väärin, tässä vihje: Eilen oli " + str(peli.viikko[peli.vihje()]) + ".")
-                    except:
-                        print("OOPS, tarkista syötteesi!")
+            while True:
+                try:
+                    if peli.tarkistus(input("Mikä päivä tänään on?:")) == True:
+                        print("Oikein! Tänään on " + str(peli.viikko[peli.paiva]) + ".")
+                        break
+                    else:
+                        print("Väärin, tässä vihje: Eilen oli " + str(peli.viikko[peli.vihje()]) + ".")
+                except:
+                    print("OOPS, tarkista syötteesi!")
 
 
+    # Double checkkaa jos tätä edes tarvitaan sitten kun peli on valmis, samaa kuin menu alla
     def uudestaan(self, peli):
         '''
         aloittaa pelin uudelleen kutsumalla sen reset-metodia
@@ -244,7 +235,8 @@ class App(tk.Tk):
             return True
         else:
             return False
-                        
+
+    # POISTA MENU FUNKTIO SITTEN KUN PELIÄ ON KOKONAAN VALMIS, TÄTÄ EI TARVITA JOS PELIÄ EI PELATA TERMINAALISSA!
     def menu(self):
 
         '''
