@@ -48,14 +48,34 @@ class App(tk.Tk):
 
     def avaa_tanaanon(self):
 
-        # Luo uuden ikkunan ja määritetään peli
-        uusi = tk.Toplevel()
-        pelin_nimi = self.tanaanon["text"]
-        uusi.title(pelin_nimi)
-        uusi.geometry("700x400")
-        kysymys = ttk.Label(uusi, text = "Mikä päivä tänään on?")
-        kysymys.grid(column = 0, row = 0)
-        uusi.configure(background="grey")
+        # Tarkistetaan onko peliä pelattu jo tänään
+        tiedosto = open("date.txt", "r")
+        z = tiedosto.readline()
+        x = datetime.datetime.today()
+        y = x.strftime("%Y-%m-%d")
+        if z == y:
+            ilmoitus = tk.Toplevel()
+            ilmoitus.geometry("400x75")
+            ilmoitus.configure(background = "grey")
+            pelin_nimi = self.tanaanon["text"]
+            ilmoitus.title(pelin_nimi)
+            virhe = ttk.Label(ilmoitus, font = ("calibri", 20), text = "Olet pelannut tätä peliä jo tänään!")
+            virhe.grid(column = 0, row = 0)
+            tiedosto.close()
+        else:    
+            tiedosto = open("date.txt", "w")
+            tänään = datetime.date.today()
+            tiedosto.write(str(tänään))
+            tiedosto.close()
+
+            # Luo uuden ikkunan ja määritetään peli
+            uusi = tk.Toplevel()
+            pelin_nimi = self.tanaanon["text"]
+            uusi.title(pelin_nimi)
+            uusi.geometry("700x400")
+            kysymys = ttk.Label(uusi, text = "Mikä päivä tänään on?")
+            kysymys.grid(column = 0, row = 0)
+            uusi.configure(background="grey")
 
 
     def avaa_arvaaluku(self):
@@ -94,6 +114,7 @@ class App(tk.Tk):
         uusi.configure(background="grey")
         arvaus = ttk.Entry(uusi)
         arvaus.grid(column = 0, row = 1)
+        
 
 
     # Sulkee kaikki ikkunat
