@@ -23,7 +23,7 @@ class ArvaaLuku:
             arvaukset, kaikki arvaukset sekä oikeat että väärät        
         '''
 
-        self.otsikko = otsikko
+        self.otsikko = "Arvaa luku"
         self.vali = vali
         self.unique = unique  
         self.lukuja = lukuja

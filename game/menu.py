@@ -78,7 +78,7 @@ class App(tk.Tk):
             kysymys.grid(column = 0, row = 0)
             uusi.configure(background="grey")
 
-            self.pelaa(peli)
+            #self.pelaa(peli)
 
 
     def avaa_arvaaluku(self):
@@ -111,7 +111,9 @@ class App(tk.Tk):
 
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
-        peli = Tuplanoppa()
+        # Tuplanoppa pitää kirjoittaa uusiksi, koska aikaisempi ryhmä on kirjoittanut sen niin että luokka kutsuu inputin kun
+        # luokka kutsutaan, tämä mekaniikka pitää poistaa, jotta peli on mahdollista tehdä toimivaksi
+        #peli = Tuplanoppa()
         pelin_nimi = self.tuplanoppa["text"]
         uusi.title(pelin_nimi)
         uusi.geometry("700x400")
