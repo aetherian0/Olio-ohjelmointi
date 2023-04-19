@@ -45,8 +45,13 @@ class App(tk.Tk):
         self.tuplanoppa.grid(row = 4, padx = 10, pady = 25)
         self.tuplanoppa.config(width = 15)
 
+        self.avaa_viimeisin()
 
     def avaa_tanaanon(self):
+
+        # tallentaa pelin peli.conf tiedostoon
+        pelin_tila = open("peli.conf", "w")
+        pelin_tila.write("tanaanon")
 
         # Tarkistetaan onko peliä pelattu jo tänään
         tiedosto = open("date.txt", "r")
@@ -81,6 +86,10 @@ class App(tk.Tk):
 
     def avaa_arvaaluku(self):
 
+        # tallentaa pelin peli.conf tiedostoon
+        pelin_tila = open("peli.conf", "w")
+        pelin_tila.write("arvaaluku")
+
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
         peli = ArvaaLuku()
@@ -94,6 +103,10 @@ class App(tk.Tk):
 
     def avaa_viisinoppa(self):
 
+        # tallentaa pelin peli.conf tiedostoon
+        pelin_tila = open("peli.conf", "w")
+        pelin_tila.write("viisinoppa")
+
         # Luo uuden ikkunan
         peli = Viisinoppa()
         uusi = tk.Toplevel()
@@ -106,6 +119,10 @@ class App(tk.Tk):
 
 
     def avaa_tuplanoppa(self):
+
+        # tallentaa pelin peli.conf tiedostoon
+        pelin_tila = open("peli.conf", "w")
+        pelin_tila.write("tuplanoppa")
 
         # Luo uuden ikkunan
         uusi = tk.Toplevel()
@@ -121,7 +138,24 @@ class App(tk.Tk):
         uusi.configure(background="grey")
         arvaus = ttk.Entry(uusi)
         arvaus.grid(column = 0, row = 1)
-        
+
+
+    # Avaa viimeiseksi avattu peli kun ohjelma käynnistetään 
+    def avaa_viimeisin(self):
+        peli_on = open("peli.conf", "r")
+
+        match peli_on.readline():
+            case "tanaanon":
+                self.avaa_tanaanon()
+            
+            case "arvaaluku":
+                self.avaa_arvaaluku()
+
+            case "viisinoppa":
+                self.avaa_viisinoppa()
+
+            case "tuplanoppa":
+                self.avaa_tuplanoppa()
 
 
     # Sulkee kaikki ikkunat
