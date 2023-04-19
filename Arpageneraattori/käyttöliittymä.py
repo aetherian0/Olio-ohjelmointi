@@ -17,7 +17,6 @@ class Ikkuna(tk.Tk):
         self.arpojen_maara = tk.Entry(self)
         self.arpojen_maara.grid(column = 0, row = 1)
 
-
         # tyhjä rivi
         self.tyhja = tk.Label(self, text = "\n")
         self.tyhja.grid(column = 0, row = 2)
