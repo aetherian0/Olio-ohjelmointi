@@ -18,14 +18,24 @@ class Ikkuna(tk.Tk):
         self.arpojen_maara.grid(column = 0, row = 1)
 
         # tyhjä rivi
-        self.tyhja = tk.Label(self, text = "\n")
-        self.tyhja.grid(column = 0, row = 2)
+        self.tyhja1 = tk.Label(self, text = "\n")
+        self.tyhja1.grid(column = 0, row = 2)
 
         self.ohje2 = tk.Label(self, text = "Anna todennäköisyys millä 1 arpa voittaa")
         self.ohje2.grid(column = 0, row = 3)
 
         self.todennakoisuus = tk.Entry(self)
         self.todennakoisuus.grid(column = 0, row = 4)
+
+        # tyhjä rivi
+        self.tyhja2 = tk.Label(self, text = "\n")
+        self.tyhja2.grid(column = 0, row = 5)
+
+        # nappi joka generoi arvat
+        self.nappi = tk.Button(self, text = "Generoi")
+        self.nappi.grid(column = 0, row = 6)
+
+        
 
 
 if __name__ == "__main__":
