@@ -8,7 +8,7 @@ class Ikkuna(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Arpageneraattori")
-        self.geometry("300x200+600+200")
+        self.geometry("400x200+600+200")
         self.configure(background = "pink")
 
         self.ohje1 = tk.Label(self, text = "Anna generoitavien arpojen määrä")
@@ -21,7 +21,7 @@ class Ikkuna(tk.Tk):
         self.tyhja1 = tk.Label(self, text = "\n")
         self.tyhja1.grid(column = 0, row = 2)
 
-        self.ohje2 = tk.Label(self, text = "Anna todennäköisyys jolla yksittäinen arpa voittaa")
+        self.ohje2 = tk.Label(self, text = "Anna todennäköisyys jolla yksittäinen arpa voittaa väliltä 0-100%")
         self.ohje2.grid(column = 0, row = 3)
 
         self.todennakoisuus = tk.Entry(self)
@@ -32,16 +32,18 @@ class Ikkuna(tk.Tk):
         self.tyhja2.grid(column = 0, row = 5)
 
         # nappi joka generoi arvat
-        self.nappi = tk.Button(self, text = "Generoi", command = self.avaa)
+        self.nappi = tk.Button(self, text = "Generoi", command = self.generoi)
         self.nappi.grid(column = 0, row = 6)
     
 
-    def avaa(self):
-        if len(self.arpojen_maara.get()) > 0 and len(self.todennakoisuus.get()) > 0 and int(self.arpojen_maara.get()) > int(self.todennakoisuus.get()):
+    def generoi(self):
+        if len(self.arpojen_maara.get()) > 0 and len(self.todennakoisuus.get()) > 0:
+
             arpa_generaattori = Arpageneraattori()
+
             for i in range(int(self.arpojen_maara.get())):
                 # Jokaisen arvan ID arvotaan 10 miljoonan ja 99 miljoonan väliltä random luvuksi
-                arpa_generaattori.generoi_arpa(random.randint(10000000, 99999999))
+                arpa_generaattori.generoi_arpa(random.randint(10000000, 99999999), self.todennakoisuus.get())
 
         
 def main():
