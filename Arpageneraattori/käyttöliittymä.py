@@ -1,5 +1,6 @@
 import tkinter as tk
 import random
+import os
 
 from logiikka import Arpageneraattori
 
@@ -37,13 +38,18 @@ class Ikkuna(tk.Tk):
     
 
     def generoi(self):
-        if len(self.arpojen_maara.get()) > 0 and len(self.todennakoisuus.get()) > 0:
+        # Koodi pyöritetään vain jos molempii entryihin on kirjoittu jotain ja todennäköisyyden tulee olla 0 ja 100 välillä
+        if len(self.arpojen_maara.get()) > 0 and len(self.todennakoisuus.get()) > 0 and int(self.todennakoisuus.get()) < 101 and int(self.todennakoisuus.get()) > -1:
 
             arpa_generaattori = Arpageneraattori()
 
             for i in range(int(self.arpojen_maara.get())):
                 # Jokaisen arvan ID arvotaan 10 miljoonan ja 99 miljoonan väliltä random luvuksi
                 arpa_generaattori.generoi_arpa(random.randint(10000000, 99999999), self.todennakoisuus.get())
+
+
+            arvat_path = os.path.abspath(os.path.join(os.getcwd(), "Arpageneraattori", "arvat"))
+            os.startfile(arvat_path)
 
         
 def main():
