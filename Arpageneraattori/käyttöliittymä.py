@@ -1,5 +1,4 @@
 import tkinter as tk
-import tkinter.ttk as ttk
 import random
 
 from logiikka import Arpageneraattori
@@ -22,7 +21,7 @@ class Ikkuna(tk.Tk):
         self.tyhja1 = tk.Label(self, text = "\n")
         self.tyhja1.grid(column = 0, row = 2)
 
-        self.ohje2 = tk.Label(self, text = "Anna voittavien arpojen määrä")
+        self.ohje2 = tk.Label(self, text = "Anna todennäköisyys jolla yksittäinen arpa voittaa")
         self.ohje2.grid(column = 0, row = 3)
 
         self.todennakoisuus = tk.Entry(self)
@@ -41,6 +40,7 @@ class Ikkuna(tk.Tk):
         if len(self.arpojen_maara.get()) > 0 and len(self.todennakoisuus.get()) > 0 and int(self.arpojen_maara.get()) > int(self.todennakoisuus.get()):
             arpa_generaattori = Arpageneraattori()
             for i in range(int(self.arpojen_maara.get())):
+                # Jokaisen arvan ID arvotaan 10 miljoonan ja 99 miljoonan väliltä random luvuksi
                 arpa_generaattori.generoi_arpa(random.randint(10000000, 99999999))
 
         
