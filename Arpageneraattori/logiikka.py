@@ -1,11 +1,11 @@
-import time
+import random
 
 class Arpageneraattori:
     def __init__(self):
-        self.id = round(time.time())
+        pass
 
-    def generoi_arpa(self):
+    def generoi_arpa(self, id):
 
         # keksi parempi tapa tähän
-        arpa = open("Arpageneraattori/arvat/arpa_" + str(self.id) + ".txt" ,"x")
+        arpa = open(f"Arpageneraattori/arvat/arpa_{id}.txt", "x")
         
