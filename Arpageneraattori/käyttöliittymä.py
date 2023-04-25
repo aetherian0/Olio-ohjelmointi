@@ -47,7 +47,7 @@ class Ikkuna(tk.Tk):
                 # Jokaisen arvan ID arvotaan 10 miljoonan ja 99 miljoonan väliltä random luvuksi
                 arpa_generaattori.generoi_arpa(random.randint(10000000, 99999999), self.todennakoisuus.get())
 
-
+            # Avaa kansion, jossa kaikki yksittäiset arvat ovat
             arvat_path = os.path.abspath(os.path.join(os.getcwd(), "Arpageneraattori", "arvat"))
             os.startfile(arvat_path)
 
